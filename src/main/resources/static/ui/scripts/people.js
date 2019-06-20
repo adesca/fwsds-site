@@ -12,9 +12,22 @@ function getNewPersonDetails() {
     }
 }
 
+function clearTable() {
+    const table = document.querySelector('table')
+
+    let rowCount = document.querySelectorAll('tr').length
+    while (rowCount > 2) {
+        table.deleteRow(2)
+        rowCount = document.querySelectorAll('tr').length
+    }
+
+}
+
 function updateListOfPeople() {
     fetch(`${rootUrl}/all`).then(response => response.json())
         .then(body => {
+            clearTable()
+
             body.map((item, index) => {
                 var membershipExpiredString = '';
 
@@ -38,12 +51,12 @@ function updateListOfPeople() {
                 // td1.innerText = `${index}`
                 // tr.appendChild()
                 // tr.innerHTML = `
-            // <td scope="col">${index}</td>
-            // <td scope="col">${item.firstName}</td>
-            // <td scope="col">${item.lastName}</td>
-            // <td scope="col">${item.expirationDate}</td>
-            // <td scope="col">${membershipExpiredString}</td>
-            //     `;
+                // <td scope="col">${index}</td>
+                // <td scope="col">${item.firstName}</td>
+                // <td scope="col">${item.lastName}</td>
+                // <td scope="col">${item.expirationDate}</td>
+                // <td scope="col">${membershipExpiredString}</td>
+                //     `;
                 return document.createElement('tr')
             }).forEach(newTrElement => {
 
