@@ -43,20 +43,9 @@ function updateListOfPeople() {
                 newRow.insertCell(0).innerText = `${index}`;
                 newRow.insertCell(1).innerText = `${item.firstName}`;
                 newRow.insertCell(2).innerText = `${item.lastName}`;
-                newRow.insertCell(3).innerText = `${item.expirationDate}`;
+                newRow.insertCell(3).innerText = `${new Date(item.expirationDate).toLocaleDateString()}`;
                 newRow.insertCell(4).innerText = `${membershipExpiredString}`
-                // const tr = document.createElement('tr')
 
-                // const td1 = document.createElement('td')
-                // td1.innerText = `${index}`
-                // tr.appendChild()
-                // tr.innerHTML = `
-                // <td scope="col">${index}</td>
-                // <td scope="col">${item.firstName}</td>
-                // <td scope="col">${item.lastName}</td>
-                // <td scope="col">${item.expirationDate}</td>
-                // <td scope="col">${membershipExpiredString}</td>
-                //     `;
                 return document.createElement('tr')
             }).forEach(newTrElement => {
 

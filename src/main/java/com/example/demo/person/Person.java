@@ -1,6 +1,7 @@
 package com.example.demo.person;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.Entity;
@@ -19,5 +20,7 @@ public class Person {
 
     public String firstName;
     public String lastName;
-    public Date registrationDate;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    public Date expirationDate;
 }
